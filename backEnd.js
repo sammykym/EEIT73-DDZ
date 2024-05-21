@@ -10,7 +10,16 @@ app.use(cors());
 //資料庫
 var admin = require('firebase-admin');
 //取得Key認證文件
-var serviceAccount = require("./gameproject-d9074-firebase-adminsdk-6rnh9-cff9fb8858.json");
+var serviceAccount = {
+    apiKey: "AIzaSyCEEb5PlBygA9_pTl38ce19A5vtZsKUqdA",
+    authDomain: "gameproject-d9074.firebaseapp.com",
+    databaseURL: "https://gameproject-d9074-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "gameproject-d9074",
+    storageBucket: "gameproject-d9074.appspot.com",
+    messagingSenderId: "521476406324",
+    appId: "1:521476406324:web:e44521f5a393d56d945e61",
+    measurementId: "G-CL35V2SP5F"
+};
 const { timeStamp } = require("console");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
