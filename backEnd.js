@@ -4,13 +4,15 @@ const app = express();
 const io = require('socket.io-client');
 const http = require('http').Server(app)
 const sio = require('socket.io')(http)
+const firebase = require('firebase/app');
 // 允許跨域使用本服務
 var cors = require("cors");
 app.use(cors());
 //資料庫
-var admin = require('firebase-admin');
+const admin = require('firebase-admin');
 //取得Key認證文件
-var serviceAccount = {
+const serviceAccount = require("./gameproject-d9074-firebase-adminsdk-6rnh9-cff9fb8858.json");
+const firebaseConfig = {
     apiKey: "AIzaSyCEEb5PlBygA9_pTl38ce19A5vtZsKUqdA",
     authDomain: "gameproject-d9074.firebaseapp.com",
     databaseURL: "https://gameproject-d9074-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -20,12 +22,16 @@ var serviceAccount = {
     appId: "1:521476406324:web:e44521f5a393d56d945e61",
     measurementId: "G-CL35V2SP5F"
 };
-const { timeStamp } = require("console");
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
 });
+
+const { timeStamp } = require("console");
+
 //數據庫對象
-let db = admin.firestore();
+const db = admin.firestore();
 //服務器時間戳
 const FieldValue = admin.firestore.FieldValue;
 
