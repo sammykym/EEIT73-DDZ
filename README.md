@@ -2,9 +2,9 @@ npm install
 即可安裝全部套件
 
 backEnd是後台系統server
-執行backEnd.js後使用網頁開啟
-127.0.0.1:3001/CMS
-帳號：admin 
+執行backEnd.js後使用網頁開啟  
+127.0.0.1:3001/CMS  
+帳號：admin      
 密碼：12345
 
 
